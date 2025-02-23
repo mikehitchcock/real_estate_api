@@ -166,3 +166,8 @@ def get_investor(investor_id: int, user: models.User = Depends(get_current_user)
     if not investor:
         raise HTTPException(status_code=404, detail="Investor not found")
     return investor
+
+import uvicorn
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
