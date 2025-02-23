@@ -168,6 +168,8 @@ def get_investor(investor_id: int, user: models.User = Depends(get_current_user)
     return investor
 
 import uvicorn
+import os
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    port = int(os.getenv("PORT", 8000))  # Get PORT from environment, default to 8000
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
